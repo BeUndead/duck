@@ -1,0 +1,26 @@
+group 'com.com'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.jsr305_version = '3.0.2'
+
+    ext.junit_version = '5.1.0'
+    ext.junit_platform_version = '1.1.0'
+}
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly group: 'com.google.code.findbugs', name: 'jsr305', version: "$jsr305_version"
+
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: "$junit_version"
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: "$junit_version"
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: "$junit_version"
+    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: "$junit_platform_version"
+}
